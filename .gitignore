@@ -27,6 +27,7 @@ wheels/
 .env
 config_local.py
 *.key
+.streamlit/secrets.toml
 
 # IDE
 .vscode/
