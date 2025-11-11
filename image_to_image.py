@@ -8,6 +8,7 @@ import google.generativeai as genai
 from PIL import Image
 import os
 import sys
+import io
 from datetime import datetime
 from config import API_KEY, MODEL_NAME, OUTPUT_DIR
 
@@ -82,9 +83,29 @@ class ImageToImageGenerator:
         try:
             response = self.model.generate_content([full_prompt, input_image])
 
-            # Check if response contains image data
-            if not hasattr(response, 'images') or not response.images:
-                print("✗ No image generated. Response:", response.text if hasattr(response, 'text') else "No response")
+            # Extract generated image from response
+            generated_image = None
+
+            # Try to get image from response parts
+            if hasattr(response, 'parts'):
+                for part in response.parts:
+                    if hasattr(part, 'inline_data'):
+                        # Extract image data
+                        image_data = part.inline_data.data
+                        generated_image = Image.open(io.BytesIO(image_data))
+                        break
+
+            # Alternative: check for images attribute
+            if generated_image is None and hasattr(response, 'images') and response.images:
+                generated_image = response.images[0]
+
+            # If no image found, print response for debugging
+            if generated_image is None:
+                print("✗ No image generated.")
+                if hasattr(response, 'text'):
+                    print(f"Response text: {response.text}")
+                if hasattr(response, 'parts'):
+                    print(f"Response has {len(response.parts)} parts")
                 return None
 
             # Save generated image
@@ -93,9 +114,6 @@ class ImageToImageGenerator:
                 output_filename = f"image_to_image_{timestamp}.png"
 
             output_path = os.path.join(OUTPUT_DIR, output_filename)
-
-            # Save the first generated image
-            generated_image = response.images[0]
             generated_image.save(output_path)
 
             print(f"✓ Image saved to: {output_path}")
@@ -105,6 +123,8 @@ class ImageToImageGenerator:
 
         except Exception as e:
             print(f"✗ Error during generation: {str(e)}")
+            import traceback
+            traceback.print_exc()
             raise
 
     def batch_generate(self, input_image_path, prompts):
