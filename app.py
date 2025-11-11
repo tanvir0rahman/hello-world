@@ -73,14 +73,9 @@ with st.sidebar:
 
     st.header("💡 Example Prompts")
     example_prompts = [
-        "Convert to watercolor painting",
-        "Make it look like anime",
-        "Add sunset lighting",
-        "Blur background, focus subject",
-        "Transform into pixel art",
-        "Apply vintage 1970s filter",
-        "Colorize black and white",
-        "Make it look futuristic"
+        "Corporate Classic",
+        "Creative",
+        "Editorial"
     ]
 
     for prompt in example_prompts:
