@@ -14,6 +14,7 @@ This milestone implements image-to-image transformation capabilities using the G
 
 ## Features
 
+- **Web Interface**: Beautiful Streamlit app with drag-and-drop upload and live preview
 - **Simple API**: Easy-to-use Python class for image transformations
 - **Multiple Use Cases**: Style transfer, object modification, color adjustments, and more
 - **Batch Processing**: Generate multiple variations with different prompts
@@ -39,16 +40,36 @@ pip install -r requirements.txt
 
 ```
 hello-world/
+├── app.py                # Web interface (Streamlit)
 ├── image_to_image.py     # Main implementation
 ├── examples.py           # Usage examples
 ├── config.py             # Configuration file
 ├── requirements.txt      # Python dependencies
 ├── .gitignore           # Git ignore file
+├── QUICKSTART.md        # Quick start guide
 ├── output/              # Generated images (auto-created)
 └── README.md            # This file
 ```
 
 ## Usage
+
+### Web Interface (Recommended)
+
+The easiest way to use the image-to-image generator is through the web interface:
+
+```bash
+streamlit run app.py
+```
+
+Then open your browser to: **http://localhost:8501**
+
+**Features:**
+- 🎨 Drag-and-drop image upload
+- ✨ Interactive prompt input with examples
+- 👁️ Side-by-side comparison view
+- ⬇️ One-click download of generated images
+- 🔄 Batch processing with multiple prompts
+- 📱 Responsive design
 
 ### Basic Command-line Usage
 

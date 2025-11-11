@@ -1,42 +1,40 @@
 # Quick Start Guide - Image-to-Image Generation
 
-Get started with image-to-image generation in 3 simple steps!
+Get started with image-to-image generation in 2 simple steps!
 
 ## Step 1: Install Dependencies
 
 ```bash
-pip install google-generativeai Pillow
+pip install -r requirements.txt
 ```
 
-## Step 2: Prepare Your Image
+## Step 2: Run the App
 
-Place an image file in the current directory or specify the full path.
+### Option A: Web Interface (Easiest!)
 
-## Step 3: Transform Your Image
+```bash
+streamlit run app.py
+```
 
-### Option A: Command Line
+Then open **http://localhost:8501** in your browser and:
+1. Upload an image
+2. Enter a transformation prompt
+3. Click "Generate Image"
+4. Download your result!
+
+### Option B: Command Line
 
 ```bash
 python image_to_image.py my_photo.jpg "convert to watercolor painting"
 ```
 
-### Option B: Python Script
-
-Create a file `my_transform.py`:
+### Option C: Python Script
 
 ```python
 from image_to_image import ImageToImageGenerator
 
-# Create generator
 gen = ImageToImageGenerator()
-
-# Transform image
 gen.generate("my_photo.jpg", "make it look like an anime drawing")
-```
-
-Run it:
-```bash
-python my_transform.py
 ```
 
 ## Output
