@@ -95,9 +95,9 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("📤 Upload Image")
     uploaded_file = st.file_uploader(
-        "Choose an image...",
-        type=['png', 'jpg', 'jpeg', 'webp'],
-        help="Upload the image you want to transform"
+        "Limit 200MB per file • JPG only",
+        type=['jpg', 'jpeg'],
+        help="Upload JPG images only (max 200MB)"
     )
 
     if uploaded_file is not None:
