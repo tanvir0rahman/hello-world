@@ -68,8 +68,6 @@ with st.sidebar:
 
     st.header("💡 Example Prompts")
     example_prompts = [
-        "Corporate Classic",
-        "Creative",
         "Editorial"
     ]
 
@@ -108,7 +106,7 @@ with col2:
         default_prompt = st.session_state.selected_prompt
         del st.session_state.selected_prompt
     else:
-        default_prompt = ""
+        default_prompt = "Editorial"
 
     prompt = st.text_area(
         "Enter transformation prompt:",
