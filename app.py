@@ -25,7 +25,16 @@ st.markdown("""
         font-size: 2.5rem;
         color: #1f77b4;
         text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    .creator-text {
+        font-family: 'Brush Script MT', cursive, serif;
+        font-size: 1.5rem;
+        color: #ff6b6b;
+        text-align: center;
         margin-bottom: 1rem;
+        font-style: italic;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
     .sub-header {
         font-size: 1.2rem;
@@ -55,6 +64,7 @@ if 'generator' not in st.session_state:
 
 # Header
 st.markdown('<h1 class="main-header">🎨 Image-to-Image Generator</h1>', unsafe_allow_html=True)
+st.markdown('<p class="creator-text">brought to you by Tanvir</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Transform your images with AI using Google Gemini 2.5 Flash Image</p>', unsafe_allow_html=True)
 
 # Sidebar with information
