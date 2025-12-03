@@ -63,12 +63,7 @@ with st.sidebar:
     st.markdown("""
     This app uses **Google Gemini 2.5 Flash Image** (Nano Banana) to transform images based on text prompts.
 
-    **Capabilities:**
-    - Style transfer (watercolor, anime, etc.)
-    - Background modification
-    - Color adjustments
-    - Object editing
-    - Artistic effects
+    Example: Editorial
     """)
 
     st.header("💡 Example Prompts")
